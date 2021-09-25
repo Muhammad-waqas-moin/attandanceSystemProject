@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Attandance System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        /* .flex_container {
+            display: flex;
+            justify-content: center;
+            flex-flow: row wrap;
+            align-content: center;
+        } */
+    </style>
+
+<body>
+
+
+
+
+    <div class="d-flex flex-row flex-wrap mt-4 border ">
+        <div class="col-9 border text-center">
+            <h3 class="mt-4 mb-4 text-primary">ATTANDANCE OF MONTH : <span class=""
+                    style="border-bottom: 5px solid yellow;" id="displayMonth"></span>
+            </h3>
+
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-bordered" id="tableForSetStudentRecord">
+                        <thead></thead>
+                        <tbody id="">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- <hr style="border-bottom: 3px solid yellow"> -->
+            <!-- <div class="row">
+                <div class="col-12">
+                    <table class="table table-bordered" id="tableForSetStudentRecord">
+                        <thead></thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div> -->
+
+
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-bordered " id="displayDaysInCurrentMonth">
+                        <thead>
+
+                        </thead>
+                        <tbody class="" id="daysTableTBody">
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="col-3 border text-center">
+            <h4 class="mt-4 text-center text-primary">Add New Student</h4>
+            <hr class="" style="border-bottom: 5px solid yellow;" id="">
+            </hr>
+            <div class="row">
+                <div class="col-12">
+                    <form id="studentform" action="#" class="mt-4 ">
+                        <div class="row d-flex flex-nowrap justify-content-center ">
+                            <div class="">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Enter Student" id="newstudent"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="">
+                                <button id="submitStudentToTable" class="btn btn-outline-info" type="submit"
+                                    value="submit"><i class="fa fa-plus fa-1x"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12  d-flex flex-row flex-wrap justify-content-around">
+                    <table class="table table-bordered  text-center" id="studenttable">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Name</th>
+                                <th>P</th>
+                                <th>A</th>
+                                <th>L</th>
+                                <th>H</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableTbody">
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="1" class="text-primary">
+                                    Select Date<br />(Optional)
+                                </td>
+                                <td colspan="4" class="pt-4">
+                                    <input type="date" id="myDate">
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-12">
+                    <button type="button" class="btn btn-primary" id="btnAttandance"
+                        onclick="addAttancdancetoTable()">Add
+                        Attandance</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <!--
+    <div class="container-fluid">
+        <div class="row border mt-4 d-flex flex-row ">
+            <div class="col-9 text-center">
+                <h3 class="mt-4 mb-4 text-primary">ATTANDANCE OF MONTH <span class="text-primary"
+                        id="displayMonth"></span>
+                </h3>-->
+
+    <!-- <div class="d-flex">
+
+                </div> -->
+
+    <!-- 
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12 d-flex flex-nowrap" style="background-color: darkgray;">
+                                <table class="table  table-bordered" id="displayDaysInCurrentMonth">
+                                    <thead>
+
+                                    </thead>
+                                    <tbody id="daysTableTBody">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+    <!-- 
+                <div class="d-flex">
+
+                </div> -->
+
+
+
+    <!-- <div class=" col-md-8 d-flex justify-content-around" id="displaydaysOfCurrentMonth">
+                    <div class="row">
+                       
+                    </div>
+                </div> -->
+    <!--</div>
+
+    <div class="col-3 border">
+        <h4 class="mt-4 text-center text-primary">Add New Student</h4>
+        <form id="studentform" action="#" class="mt-4 ">
+            <div class="row d-flex flex-nowrap justify-content-center ">
+                <div class="">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter Student" id="newstudent" required>
+                    </div>
+                </div>
+                <div class="">
+                    <button id="submitStudentToTable" class="btn btn-outline-info" type="submit" value="submit"><i
+                            class="fa fa-plus fa-1x"></i></button>
+                </div>
+
+            </div>
+        </form>
+        <hr>
+
+        <div class="d-flex justify-content-around">
+            <table class="table table-bordered text-center" id="studenttable">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Name</th>
+                        <th>P</th>
+                        <th>A</th>
+                        <th>L</th>
+                        <th>H</th>
+                    </tr>
+                </thead>
+                <tbody id="tableTbody">
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="1">
+                            Select Date<br />(Optional)
+                        </td>
+                        <td colspan="4">
+                            <input type="date" id="myDate">
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>-->
+    <!-- <div class="row"> -->
+    <!--<div class="d-flex justify-content-around">
+        <button type="button" class="btn btn-primary" id="btnAttandance" onclick="addAttancdancetoTable()">Add
+            Attandance</button>
+    </div>-->
+    <!-- </div> -->
+
+    <!-- <div class="row">
+                    <div class="col-12">
+                        <table class="table border" id="studenttable">
+                            <thead>
+                                <tr class="d-flex flex-nowra ">
+                                    <th class="text-center border  justify-content-around" colspan="2">Student Name</th>
+                                    <th class="text-center border justify-content-around">P</th>
+                                    <th class="text-center border justify-content-around">A</th>
+                                    <th class="text-center border justify-content-around">L</th>
+                                    <th class="text-center border justify-content-around">H</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div> -->
+
+    <!--
+    </div>
+    </div>
+    </div>
+-->
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="attandancesystem.js"></script>
+</body>
+
+</html>
